@@ -1,32 +1,32 @@
-class Piece 
+require "byebug"
 
-    def initialize(color, board, pos)
-        @color = color 
-        @board = board 
-        @pos = pos 
-    end 
+class Piece
+  attr_reader :color
 
-    def valid_moves 
+  def initialize(color, board, pos)
+    # debugger
+    @color = color
+    @board = board
+    @pos = pos
+  end
 
-    end 
+  def valid_moves
+  end
 
-    def to_s
+  def to_s
+    symbol
+  end
 
-    end 
+  def empty?
+    false
+  end
 
-    def empty?
-        false 
-    end 
+  def pos=(new_pos)
+    @pos = new_pos
+  end
 
-    def pos=(new_pos) 
-        @pos = new_pos
-    end 
+  private
 
-
-    private 
-
-    def move_into_check?(end_pos)
-
-    end 
-
-end 
+  def move_into_check?(end_pos)
+  end
+end

@@ -1,57 +1,59 @@
 module Slideable
-  
-    HORIZONTAL_DIRS = [ 
-                        [0, 1],
-                        [0,-1]
-    ]
+  HORIZONTAL_DIRS = [
+    [0, 1],
+    [0, -1],
+  ]
 
-    VERTICAL_DIRS = [
-                        [1, 0],
-                        [-1,0]
-    ]
+  VERTICAL_DIRS = [
+    [1, 0],
+    [-1, 0],
+  ]
 
-    DIAGONAL_DIRS = [
-                        [1,-1],
-                        [1, 1],
-                        [-1,-1],
-                        [-1, 1]
-    ]
+  DIAGONAL_DIRS = [
+    [1, -1],
+    [1, 1],
+    [-1, -1],
+    [-1, 1],
+  ]
 
-    # def horizontal_dirs 
-    # end 
+  def horizontal_dirs
+    return HORIZONTAL_DIRS
+  end
 
-    # def diagonal_dirs 
-    # end 
+  def diagonal_dirs
+    return DIAGONAL_DIRS
+  end
 
+  def vertical_dirs
+    return VERTICAL_DIRS
+  end
 
+  def moves
+    moves = []
+    move_dirs.each do |dx, dy|
+      moves += grow_unblocked_moves_in_dir(dx, dy)
+    end
+    moves
+  end
 
+  def grow_unblocked_moves_in_dir(dx, dy)
+    moves = []
+    loop do
+      pos = [pos.first + dx, pos.last + dy]
 
+      if !board.valid_pos?(pos)
+        break
+      end
 
-    # Should return an array of places a Piece can move to.
-    # The Slideable module can implement #moves, but it needs to know what
-    # directions a piece can move in (diagonal, horizontally/vertically, both).
-
-    # Classes that include the module Slideable (Bishop/Rook/Queen) will need
-    # to implement a method #move_dirs, which #moves will use.
-
-    # Classes that include Slideable in particular need the Board so they
-    # know to stop sliding when blocked by another piece. 
-    def moves 
-
-    end 
-
-
-
-    
-
-
-
-    def move_dirs #(overwritten by subclass)
-
-    end 
-
-    def grow_unblocked_moves_in_dir(dx, dy)
-
-    end 
-
+      if board.empty?(pos)
+        moves << pos
+      else
+        if board[pos].color != color
+          moves << pos
+        end
+        break
+      end
+    end
+    moves
+  end
 end
