@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <style>
+     .flex-container {display: flex; justify-content: space-between; }
+     h1 { font-family:'Courier New'; color: purple}
+     h2 { font-family: 'Courier New' }
+     a { background-color: thistle; border: 1px solid lavender; border-radius: 15px}
+     
+   </style>
+  </head>
+
+  <body bgcolor="f3e1f6">
+    <div class="flex-container">
+      <div>
+      <h1 style="padding-left: 60px"> Music App </h1>
+      </div>
+      
+      <div>
+        <% if current_user.nil? %>
+          <a href="<%= new_user_url %>">Sign Up | </a>
+          <a href="<%= new_session_url %>">Log In</a>
+        <% else %>
+          <form action="<%= session_url %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            Current User: <%= current_user.email %>
+              <input type="submit" value="Log Out">
+          </form>
+        <% end %>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>
