@@ -1,0 +1,91 @@
+/* PHASE 9: Forms */
+
+form {
+  width: 800px;
+  
+  /* float: left; */
+}
+
+.content-main {
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+.content-main img {
+  width: 50px;
+  height: 50px;
+  margin-top:10px;
+}
+
+.post-form {
+  display: flex;
+  width: 580px;
+  border-radius: 5px;
+  padding: 20px;
+  padding-top: 20px;
+}
+.post-form img {
+  display: block;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.post-form > div {
+  margin: 10px;
+  width: 500px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-left: 20px;
+  background-color: #eee;
+}
+
+.post-form > div > label {
+  font-weight: 500;
+
+}
+
+label > div {
+  font-weight: 600;
+  margin-top: 20px
+}
+
+label > input {
+  background-color: white;
+  width: 440px;
+  padding: 10px;
+}
+
+.post-form textarea {
+  width: 440px;
+  height: 150px;
+  border: 2px solid lightgray;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input {
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+div > a {
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+.post-form > div > button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 600;
+  background-color: rgb(48, 201, 56);
+  padding: 10px;
+  border: 1px solid rgb(23, 148, 23);
+  border-radius: 5px;
+}
+
+
+.post-form > div > button:hover {
+  color: white;
+  background-color: forestgreen;
+}
