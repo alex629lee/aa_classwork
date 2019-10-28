@@ -1,0 +1,55 @@
+/* Main Font: Staatliches */
+/* Clock Font: Roboto */
+html, body, div, span, object,
+h1, h2, h3, h4, h5, h6, p,
+a, img, strong, center, ol, ul, li,
+form, label, 
+article, aside, figure, figcaption, footer, 
+header, nav, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+/* ------------------------------------------------------------------------- */
+
+body {
+  font-family: Staatliches;
+  text-align: center; 
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.main-clock {
+  width: 50%;
+  margin: 30px auto; 
+  border: 1px solid black; 
+  padding: 10px; 
+  background: pink;
+}
+
+
+
+.time, .date {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  color: white;
+  letter-spacing: 3px;
+  margin: 5px 0px;
+  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
+}
