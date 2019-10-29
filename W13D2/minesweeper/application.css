@@ -1,0 +1,77 @@
+body {
+  font-family: sans-serif;
+}
+
+#board {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.unclicked {
+  background-color: lightgray;
+  border-style: outset;
+  width: 20px;
+  height: 20px;
+}
+
+.unclicked:hover {
+  background-color: rgb(158, 158, 158);
+  cursor: pointer;
+}
+
+.explored {
+  border-style: inset;
+  width: 20px;
+  height: 20px;
+  background-color: lightgray;
+}
+.bombed {
+  border-style: inset;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+.flagged {
+  border-style: outset;
+  color: red;
+  width: 20px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.screen {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+/* box => play again popup */
+.box {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  left: 40%;
+  top: 20%;
+  width: 160px;
+  padding: 20px;
+  padding-left: 100px;
+}
+
+.box > p {
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.box > button {
+  margin-top: 20px;
+}
+
+  

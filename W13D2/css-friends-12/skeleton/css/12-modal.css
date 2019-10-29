@@ -1,0 +1,39 @@
+/* PHASE 12: Modal */
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8); 
+}
+
+.modal-form {
+  position: absolute;
+  background: white;
+  z-index: 3;
+  top: 15%;
+  left: 38%;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+}
+
+.modal-form > h1 {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+
+/* .input1 {
+  border: 1px solid lightgray;
+  padding: 5px;
+  margin: 5px;
+} */
+.input1 > label > input {
+  border: 1px solid lightgray;
+  padding: 5px;
+  margin: 5px;
+}
