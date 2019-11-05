@@ -1,6 +1,4 @@
 
-
-
 export const fetchAllPokemon = () => {
   return $.ajax({
     method: "GET",
@@ -8,6 +6,10 @@ export const fetchAllPokemon = () => {
   })
 }
 
+export const fetchSinglePokemon = (id) => {
+  return $.ajax({
+    method: "GET",
+    url: `api/pokemon/${id}`
+  })
+}
 
-
-// module.export = fetchAllPokemon;
