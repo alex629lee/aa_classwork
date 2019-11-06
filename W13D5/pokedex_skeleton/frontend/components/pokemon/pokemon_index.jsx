@@ -7,9 +7,9 @@ class PokemonIndex extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      loading: true
-    }
+    // this.state = {
+    //   loading: true
+    // }
   }
 
   componentDidMount() {
@@ -26,19 +26,20 @@ class PokemonIndex extends React.Component {
       );
     });
 
-    if (this.state.loading) {
-      return null;
-    }
+    // if (this.state.loading) {
+    //   return null;
+    // }
     // if (pokemon.length === 0) {
     //   return null;
     // }
 
     return (
       <section className="pokedex">
-        <Route path="/pokemon/:pokemonId" component={PokemonDetailContainer} />
+        
         <ul className="pokemon-list">
           { pokemon }
         </ul>
+        <Route path="/pokemon/:pokemonId" component={PokemonDetailContainer} />
       </section>
     );
   }

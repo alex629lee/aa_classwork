@@ -6,8 +6,8 @@ const itemsReducer = (state = {}, action) => {
     //   let newState = action.pokemon;
     //   return Object.assign({}, newState);
     case (RECEIVE_SINGLE_POKEMON):
-      let newNewState = action.items;
-      return Object.assign({}, newNewState);
+      let newState = action.pokemon.items;
+      return Object.assign({}, state, newState);
     default:
       return state;
   }
