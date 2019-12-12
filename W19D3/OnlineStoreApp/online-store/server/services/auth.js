@@ -29,7 +29,7 @@ const register = async data => {
       }
     );
     user.save();
-    const token = jwt.sign({ id: user._id }, keys.secretOrKey);
+    const token = jwt.sign({ id: user._id }, keys);
     return { token, loggedIn: true, ...user._doc, password: null };
   } catch (err) {
     throw err;
@@ -76,22 +76,12 @@ const login = async data => {
 
 const verifyUser = async data => {
   try {
-    // we take in the token from our mutation
     const { token } = data;
-    console.log(token);
-    // we decode the token using our secret password to get the
-    // user's id
     const decoded = jwt.verify(token, keys);
     const { id } = decoded;
-    console.log(id);
-    console.log(decoded);
-    // then we try to use the User with the id we just decoded
-    // making sure we await the response
     const loggedIn = await User.findById(id).then(user => {
-      console.log(user);
       return user ? true : false;
     });
-
     return { loggedIn };
   } catch (err) {
     return { loggedIn: false };

@@ -33,12 +33,18 @@ const mutation = new GraphQLObjectType({
         name: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
         weight: { type: new GraphQLNonNull(GraphQLInt) },
-        price: { type: new GraphQLNonNull(GraphQLFloat) },
+        price: { type: GraphQLFloat },
         user: { type: GraphQLID },
         category: { type: GraphQLID }
       },
-      resolve(parentValue, { name, description, weight, price, user, category }) {
-        return new Product({ name, description, weight, price, user, category }).save();
+
+      async resolve(_, { name, description, weight }, ctx) {
+        const validUser = await AuthService.verifyUser({ token: ctx.token });
+        if (validUser.loggedIn) {
+          return new Product({ name, description, weight }).save();
+        } else {
+          throw new Error('Sorry, you need to be logged in to create a product.');
+        }
       }
     },
     deleteProduct: {

@@ -20,11 +20,11 @@ const ProductSchema = new Schema({
   },
   weight: {
     type: Number,
-    required: false
+    required: true
   },
   price: {
     type: Number,
-    required: true
+    required: false
   }
 });
 

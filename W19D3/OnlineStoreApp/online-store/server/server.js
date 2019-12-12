@@ -4,9 +4,10 @@ const bodyParser = require("body-parser");
 const db = require("../config/keys").mongoURI;
 const models = require("./models/index");
 const schema = require("./schema/schema");
-
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 if (!db) {
   throw new Error("You must provide a string to connect to MongoDB Atlas");
@@ -22,9 +23,16 @@ const expressGraphQL = require("express-graphql");
 
 app.use(
   "/graphql",
-  expressGraphQL({
-    schema,
-    graphiql: true
+  expressGraphQL(req => {
+    return {
+      schema,
+      // we are receiving the request and can check for our
+      // auth token under headers
+      context: {
+        token: req.headers.authorization
+      },
+      graphiql: true
+    };
   })
 );
 
